@@ -36,18 +36,19 @@ export const LargerText = styled.p`
 `;
 
 export const Text = styled.p`
-  margin: auto 10px;
+  margin: 5px 10px;
 `;
 
 export const Box = styled.div`
   display: grid;
   text-align: center;
   column-gap: 10px;
-  margin-top: 48px;
+  margin-top: 32px;
 
   ${media.up.large`
     grid-template-columns: 1fr 1fr;
-    margin: 64px 120px;
+    margin-left: 120px;
+    margin-right: 120px;
   `};
 `;
 
