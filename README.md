@@ -1,4 +1,4 @@
-All svg files were minifies via https://jakearchibald.github.io/svgomg
+1. All svg files were minifies via https://jakearchibald.github.io/svgomg
 
 ### Situation
 
