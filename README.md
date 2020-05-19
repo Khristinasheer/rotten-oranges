@@ -1,5 +1,5 @@
 1. All svg files were minifies via https://jakearchibald.github.io/svgomg
-2. It seems that there is a typo for home colors
+2. It seems that there is a typo for home colors.
 
 ### Situation
 
