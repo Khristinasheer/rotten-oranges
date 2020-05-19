@@ -1,5 +1,3 @@
-# SECBERUS Frontend Homework Task
-
 ### Situation
 
 The year is 2021 - the Zombie apocalypse has started, and the virus spreads through the air. Only those who distance at least one home from another will be safe.
