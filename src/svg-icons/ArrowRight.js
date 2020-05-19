@@ -1,15 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import media from "../helpers/media";
-
-const StyledIcon = styled.svg`
-  ${media.down.small`
-    width: 20px;
-  `};
-`;
 
 const ArrowRight = ({ width = "28px" }) => (
-  <StyledIcon
+  <svg
     width={width}
     viewBox="0 0 492.004 492.004"
     xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +15,7 @@ const ArrowRight = ({ width = "28px" }) => (
 			c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
 			c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"
     />
-  </StyledIcon>
+  </svg>
 );
 
 export default ArrowRight;

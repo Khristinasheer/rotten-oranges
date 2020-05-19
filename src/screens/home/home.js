@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, IconGuide, Text, Box, FlexDiv } from "./Styled";
+import { Header, IconGuide, Text, Box } from "./Styled";
 import {
   HealthyHome,
   ZombieHome,
@@ -9,26 +9,36 @@ import {
 import ScenarioTemplate from "./ScenarioTemplate";
 
 const Home = () => {
+  const iconData = [
+    {
+      src: <EmptyHome width="40" />,
+      text: "Empty Home",
+    },
+    {
+      src: <HealthyHome width="40" />,
+      text: "Healthy Home",
+    },
+    {
+      src: <ZombieHome width="40" />,
+      text: "Zombie Home",
+    },
+    {
+      src: <InfectedHome width="40" />,
+      text: "Infected Home",
+    },
+  ];
   return (
     <>
       <Header>Zombies</Header>
       <IconGuide>
-        <FlexDiv>
-          <EmptyHome width="40" />
-          <Text>Empty Home</Text>
-        </FlexDiv>
-        <FlexDiv>
-          <HealthyHome width="40" />
-          <Text>Healthy Home</Text>
-        </FlexDiv>
-        <FlexDiv>
-          <ZombieHome width="40" />
-          <Text>Zombie Home</Text>
-        </FlexDiv>
-        <FlexDiv>
-          <InfectedHome width="40" />
-          <Text>Infected Home</Text>
-        </FlexDiv>
+        {iconData.map((icon) => {
+          return (
+            <li key={icon.text}>
+              {icon.src}
+              <Text>{icon.text}</Text>
+            </li>
+          );
+        })}
       </IconGuide>
 
       <Box>

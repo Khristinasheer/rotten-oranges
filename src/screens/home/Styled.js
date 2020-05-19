@@ -1,36 +1,16 @@
 import styled, { keyframes } from "styled-components";
 import media from "../../helpers/media";
 
-export const IconGuide = styled.div`
+export const IconGuide = styled.ul`
   display: flex;
+  list-style: none;
+  text-align: center;
+  padding-left: 0;
   justify-content: center;
-  margin-top: 48px;
 
-  ${media.down.medium`
-    margin: 48px 5px;
-    display: grid;
-    justify-items: center;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
-  `};
-`;
-
-export const FlexDiv = styled.div`
-  display: flex;
-
-  ${media.down.medium`
-    width: 168px;
-  `};
-
-  ${media.down.small`
-    width: 178px;
-  `};
-
-  ${media.down.xsmall`
-    width: 140px;
-  `};
+  li {
+    width: 80px;
+  }
 `;
 
 export const Header = styled.h2`
@@ -91,6 +71,8 @@ export const Button = styled.button`
   outline: none;
   margin-top: 15px;
   margin-bottom: 25px;
+  padding-bottom: 27px;
+  padding-top: 10px;
 `;
 
 export const StyledDiv = styled.div`
