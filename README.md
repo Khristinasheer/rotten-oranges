@@ -1,5 +1,3 @@
-# SECBERUS Frontend Homework Task
-
 All svg files were minifies via https://jakearchibald.github.io/svgomg
 
 ### Situation
