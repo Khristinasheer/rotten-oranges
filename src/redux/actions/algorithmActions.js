@@ -10,8 +10,8 @@ const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
   const dataKey = scenario === 0 ? "firstScenarioData" : "secondScenarioData";
   const grid = cloneDeep(initialState[dataKey]);
-  console.log("targetDay", targetDay);
-  console.log("grid", grid);
+  // console.log("targetDay", targetDay);
+  // console.log("grid", grid);
   if (targetDay === 0) {
     dispatch({
       type: AlgorithmActions.INFECT_HOMES,
@@ -40,7 +40,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
     [-1, 0],
     [1, 0],
   ];
-  console.log("healrthy houses/zombie homes", healthyHouses, zombieHomes);
+  // console.log("healrthy houses/zombie homes", healthyHouses, zombieHomes);
   while (healthyHouses && zombieHomes.length) {
     let infectionProgress = [];
     while (zombieHomes.length) {
@@ -57,7 +57,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
 
     zombieHomes = infectionProgress;
     day++;
-    console.log("day", day);
+    // console.log("day", day);
     if (targetDay === day) {
       dispatch({
         type: AlgorithmActions.INFECT_HOMES,
@@ -76,6 +76,28 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
       });
       await sleep(1000);
     }
+  }
+
+  // fix steps back < >
+  if (scenario == 1 && healthyHouses) {
+    let newArray = [];
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] === 2) {
+          grid[i][j] = 1;
+          healthyHouses++;
+          newArray.push([i][j]);
+          console.log("grid", grid);
+        }
+      }
+      zombieHomes = newArray;
+    }
+    dispatch({
+      type: AlgorithmActions.INFECT_HOMES,
+      scenario,
+      grid,
+      day,
+    });
   }
 
   return day;

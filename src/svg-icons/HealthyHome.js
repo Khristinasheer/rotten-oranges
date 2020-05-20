@@ -38,11 +38,11 @@ const HealthyHome = ({ width = "65px" }) => (
     />
     <path
       d="M43.4629 10.8465C44.2625 9.8859 45.7375 9.8859 46.5371 10.8465L69.1167 37.9704C70.2012 39.2733 69.2748 41.25 67.5796 41.25H22.4204C20.7252 41.25 19.7988 39.2733 20.8833 37.9704L43.4629 10.8465Z"
-      fill="#B91F1F"
+      fill="#3b33e3"
     />
     <rect x="39" y="57" width="12" height="18" fill="#5C4300" />
-    <rect x="28" y="57" width="8" height="8" fill="#B91F1F" />
-    <rect x="54" y="57" width="8" height="8" fill="#B91F1F" />
+    <rect x="28" y="57" width="8" height="8" fill="#3b33e3" />
+    <rect x="54" y="57" width="8" height="8" fill="#3b33e3" />
   </StyledIcon>
 );
 

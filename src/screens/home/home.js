@@ -48,6 +48,7 @@ const Home = () => {
         />
         <ScenarioTemplate
           text="A case with effective social distancing"
+          description="In the end, all infected homes are cured"
           scenario={1}
         />
       </Box>

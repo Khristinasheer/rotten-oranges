@@ -4,7 +4,9 @@
 
 Deployed website: https://rotten-oranges.now.sh.
 
-It said in the instructions that Healthy House has a blue roof:
+All SVG files were minified using [SVGOMG](https://jakearchibald.github.io/svgomg).
+
+It said in the instructions that the Healthy House has a blue roof:
 
 - Four SVG files located in the /public folder. Make sure you use these to portray homes in the view.
   - HealthyHome.svg (Blue roof)
@@ -12,10 +14,8 @@ It said in the instructions that Healthy House has a blue roof:
   - EmptyHome.svg (Gray roof)
   - InfectedHome.svg (Light Green Roof)
 
-However, the SVG that was provided for Healthy House has a red roof.
+However, the SVG that was provided for Healthy House had a red roof. I changed the red color to blue.
 I just wanted to point that out to avoid the confusion.
-
-All SVG files were minified using https://jakearchibald.github.io/svgomg.
 
 ### Situation
 

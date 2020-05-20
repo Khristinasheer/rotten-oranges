@@ -18,7 +18,7 @@ import {
   ArrowLeft,
 } from "../../svg-icons";
 
-const ScenarioTemplate = ({ scenario, text }) => {
+const ScenarioTemplate = ({ scenario, text, description }) => {
   const scenarioKey =
     scenario === 0 ? "firstScenarioData" : "secondScenarioData";
   const scenarioDayKey =
@@ -29,9 +29,9 @@ const ScenarioTemplate = ({ scenario, text }) => {
   );
   const day = useSelector((state) => state.AlgorithmReducer[scenarioDayKey]);
 
-  if (scenario === 0) {
-    console.log("home", data);
-  }
+  // if (scenario === 0) {
+  //   console.log("home", data);
+  // }
 
   const dispatch = useDispatch();
   const scenarioItems = data.map((row, index) => {
@@ -59,6 +59,7 @@ const ScenarioTemplate = ({ scenario, text }) => {
     <StyledDiv>
       <LargerText>Day: {day}</LargerText>
       <p>{text}</p>
+      {description && <p>description</p>}
       {scenarioItems}
 
       <div>
@@ -72,7 +73,7 @@ const ScenarioTemplate = ({ scenario, text }) => {
           </ArrowButton>
           <ArrowButton
             onClick={() => {
-              console.log("hello", scenario);
+              // console.log("hello", scenario);
               dispatch(InfectHomes(scenario, day + 1));
             }}
           >
