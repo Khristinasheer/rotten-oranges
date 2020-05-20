@@ -1,5 +1,21 @@
-1. All svg files were minifies via https://jakearchibald.github.io/svgomg
-2. It seems that there is a typo for home colors.
+# SECBERUS Frontend Homework Task
+
+### by Khristina Sheer
+
+Deployed website: https://rotten-oranges.now.sh.
+
+It said in the instructions that Healthy House has a blue roof:
+
+- Four SVG files located in the /public folder. Make sure you use these to portray homes in the view.
+  - HealthyHome.svg (Blue roof)
+  - ZombieHome.svg (Green roof)
+  - EmptyHome.svg (Gray roof)
+  - InfectedHome.svg (Light Green Roof)
+
+However, the SVG that was provided for Healthy House has a red roof.
+I just wanted to point that out to avoid the confusion.
+
+All SVG files were minified using https://jakearchibald.github.io/svgomg.
 
 ### Situation
 
@@ -86,6 +102,7 @@ Not all will be infected, and the infected will be cured!
 ### Task
 
 - Show the spread of the zombies on the page with at least a 1 second pause between spread.
+- Show the newly infected homes as the InfectedHome svg (Light green) per turn.
 - Once the spread is complete, show all stages as left/right carets.
 
   - Feel free to just use < or >, be creative with CSS, or install an icon dependency.
@@ -114,25 +131,31 @@ Option 2 (with a private fork):
 
 You have been provided with the following
 
+- Basic project structure
 - Boilerplate Immer-based Redux store, and a basic reducer/action.
-  - Includes Redux-Thunk and Redux-Logger
+  - Includes Redux-Thunk and Redux-Logger middlewares
 - Styled components global styling and theme provider
-- Three SVG files located in the /public folder. Make sure you use these to portay homes in the view.
+- Four SVG files located in the /public folder. Make sure you use these to portay homes in the view.
   - HealthyHome.svg (Blue roof)
   - ZombieHome.svg (Green roof)
   - EmptyHome.svg (Gray roof)
-- Three static matrices `/src/constants/matrices`
+  - InfectedHome.svg (Light Green Roof)
+- Three static inputs `/src/constants/matrices`
 
-## Optional Items
+## Optional Items (These aren't required)
 
 - Add dependencies, but dependencies already listed are required.
 - Add, remove, or change documentation at will.
-- Write tests of your choice (None, Integration, Unit, TDD)
-- Write a matrices generator
+- Write tests of your choice (Integration, Unit, TDD)
+- Write an input generator / algorithm
+- Add a graphing option - we use ChartJS at SECBERUS, but feel free to use any charts you wish
+- Feel free to implement TypeScript into the build process. We love any JS!
+- Add any lint you wish (Prettier, es/tslint)
 
-## For fun
+# Contributors
 
-- Feel free to implement typescript into the build process. We love any JS!
+- Sigkar
+- Colemars
 
 # Create React App Info:
 
