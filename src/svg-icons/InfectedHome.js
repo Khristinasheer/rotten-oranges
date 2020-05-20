@@ -4,11 +4,11 @@ import media from "../helpers/media";
 
 const StyledIcon = styled.svg`
   ${media.down.small`
-    width: 50px;
+    width: 35px;
   `};
 `;
 
-const InfectedHome = ({ width = "65px" }) => (
+const InfectedHome = ({ width = "50px" }) => (
   <StyledIcon
     width={width}
     viewBox="0 0 90 90"

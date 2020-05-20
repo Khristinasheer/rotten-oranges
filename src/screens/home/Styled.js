@@ -13,11 +13,11 @@ export const IconGuide = styled.ul`
   }
 `;
 
-export const Header = styled.h2`
+export const Header = styled.h1`
   text-align: center;
 `;
 
-export const LargerText = styled.p`
+export const Header2 = styled.h2`
   font-size: 20px;
   /* animation: ${keyframes`
        0%,
@@ -36,7 +36,12 @@ export const LargerText = styled.p`
 `;
 
 export const Text = styled.p`
+  font-size: 17px;
+`;
+
+export const IconText = styled.p`
   margin: 5px 10px;
+  font-size: 15px;
 `;
 
 export const Box = styled.div`
@@ -45,8 +50,8 @@ export const Box = styled.div`
   column-gap: 10px;
   margin-top: 32px;
 
-  ${media.up.large`
-    grid-template-columns: 1fr 1fr;
+  ${media.up.xlarge`
+    grid-template-columns: 1fr 1fr 1fr;
     margin-left: 120px;
     margin-right: 120px;
   `};
@@ -57,8 +62,7 @@ export const StyledUl = styled.ul`
   list-style: none;
   padding: 0;
   justify-content: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 5px 0;
 `;
 
 export const Button = styled.button`
@@ -92,7 +96,11 @@ export const ArrowButton = styled.button`
 `;
 
 export const ButtonContainer = styled.div`
-  ${media.down.large`
-    margin-bottom: 48px;
-  `};
+  margin-bottom: 48px;
+`;
+
+export const StyledSpan = styled.span`
+  border-bottom: 2px solid #d1df7e;
+  padding-bottom: 2px;
+  margin-left: 10px;
 `;

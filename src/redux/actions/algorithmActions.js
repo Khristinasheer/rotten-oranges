@@ -8,27 +8,36 @@ export const AlgorithmActions = {
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
-  const dataKey = scenario === 0 ? "firstScenarioData" : "secondScenarioData";
+  let dataKey = "";
+  if (scenario === 0) {
+    dataKey = "firstScenarioData";
+  } else if (scenario === 1) {
+    dataKey = "secondScenarioData";
+  } else {
+    dataKey = "thirdScenarioData";
+  }
+
   const grid = cloneDeep(initialState[dataKey]);
-  // console.log("targetDay", targetDay);
-  // console.log("grid", grid);
+  let showCarets = false;
+  let day = 0;
+
   if (targetDay === 0) {
     dispatch({
       type: AlgorithmActions.INFECT_HOMES,
       scenario,
+      showCarets,
       grid,
-      day: 0,
+      day,
     });
     return 0;
   }
 
-  let day = 0;
-  let healthyHouses = 0;
+  let healthyHomes = 0;
   let zombieHomes = [];
 
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
-      if (grid[i][j] === 1) healthyHouses++;
+      if (grid[i][j] === 1) healthyHomes++;
       if (grid[i][j] === 2) zombieHomes.push([i, j]);
     }
   }
@@ -40,8 +49,9 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
     [-1, 0],
     [1, 0],
   ];
-  // console.log("healrthy houses/zombie homes", healthyHouses, zombieHomes);
-  while (healthyHouses && zombieHomes.length) {
+  // console.log("healthy homes/zombie homes", healthyHomes, zombieHomes);
+
+  while (healthyHomes && zombieHomes.length) {
     let infectionProgress = [];
     while (zombieHomes.length) {
       let [x, y] = zombieHomes.pop();
@@ -49,19 +59,19 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
         let [x2, y2] = [x + direction[i][0], y + direction[i][1]];
         if (grid[x2] && grid[x2][y2] === 1) {
           grid[x2][y2] = 2;
-          healthyHouses--;
+          healthyHomes--;
           infectionProgress.push([x2, y2]);
         }
       }
     }
-
     zombieHomes = infectionProgress;
     day++;
-    // console.log("day", day);
+
     if (targetDay === day) {
       dispatch({
         type: AlgorithmActions.INFECT_HOMES,
         scenario,
+        showCarets,
         grid,
         day,
       });
@@ -71,6 +81,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
       dispatch({
         type: AlgorithmActions.INFECT_HOMES,
         scenario,
+        showCarets,
         grid,
         day,
       });
@@ -78,28 +89,35 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
     }
   }
 
-  // fix steps back < >
-  if (scenario == 1 && healthyHouses) {
-    let newArray = [];
+  // // // fix steps < > for scenario 1
+  if (scenario === 2 && healthyHomes) {
+    let curedArray = [];
     for (let i = 0; i < grid.length; i++) {
       for (let j = 0; j < grid[i].length; j++) {
         if (grid[i][j] === 2) {
           grid[i][j] = 1;
-          healthyHouses++;
-          newArray.push([i][j]);
-          console.log("grid", grid);
+          healthyHomes++;
+          curedArray.push([i][j]);
         }
       }
-      zombieHomes = newArray;
+      zombieHomes = curedArray;
     }
     dispatch({
       type: AlgorithmActions.INFECT_HOMES,
       scenario,
+      showCarets: true,
+      grid,
+      day,
+    });
+  } else {
+    dispatch({
+      type: AlgorithmActions.INFECT_HOMES,
+      scenario,
+      showCarets: true,
       grid,
       day,
     });
   }
-
   return day;
 };
 

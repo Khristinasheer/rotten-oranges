@@ -1,26 +1,17 @@
 import produce from "immer";
 import { AlgorithmActions } from "../actions/algorithmActions";
+import { CASE_ONE, CASE_TWO, CASE_THREE } from "../../constants/matrices";
 
 export const initialState = {
-  firstScenarioData: [
-    [1, 0, 1, 1, 0, 2],
-    [1, 1, 1, 2, 1, 0],
-    [0, 0, 1, 0, 1, 1],
-    [1, 0, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 2],
-    [2, 0, 1, 0, 1, 0],
-  ],
-  secondScenarioData: [
-    [2, 0, 1, 0, 1, 2],
-    [1, 0, 0, 1, 0, 1],
-    [0, 0, 1, 0, 1, 1],
-    [2, 0, 1, 1, 0, 2],
-    [1, 0, 0, 0, 1, 0],
-    [2, 1, 0, 0, 2, 0],
-  ],
-
+  firstScenarioData: CASE_ONE,
+  secondScenarioData: CASE_TWO,
+  thirdScenarioData: CASE_THREE,
   firstScenarioDay: 0,
   secondScenarioDay: 0,
+  thirdScenarioDay: 0,
+  firstScenarioCarets: false,
+  secondScenarioCarets: false,
+  thirdScenarioCarets: false,
 };
 
 const AlgorithmReducer = produce((state = { ...initialState }, action) => {
@@ -31,6 +22,7 @@ const AlgorithmReducer = produce((state = { ...initialState }, action) => {
           ...state,
           firstScenarioData: action.grid,
           firstScenarioDay: action.day,
+          firstScenarioCarets: action.showCarets,
         };
       }
       if (action.scenario === 1) {
@@ -38,6 +30,15 @@ const AlgorithmReducer = produce((state = { ...initialState }, action) => {
           ...state,
           secondScenarioData: action.grid,
           secondScenarioDay: action.day,
+          secondScenarioCarets: action.showCarets,
+        };
+      }
+      if (action.scenario === 2) {
+        return {
+          ...state,
+          thirdScenarioData: action.grid,
+          thirdScenarioDay: action.day,
+          thirdScenarioCarets: action.showCarets,
         };
       }
       break;

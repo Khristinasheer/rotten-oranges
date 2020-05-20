@@ -6,6 +6,10 @@ Deployed website: https://rotten-oranges.now.sh.
 
 All SVG files were minified using [SVGOMG](https://jakearchibald.github.io/svgomg).
 
+Added dependencies:
+
+- lodash
+
 It said in the instructions that the Healthy House has a blue roof:
 
 - Four SVG files located in the /public folder. Make sure you use these to portray homes in the view.

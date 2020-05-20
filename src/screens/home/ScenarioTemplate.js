@@ -5,9 +5,11 @@ import {
   StyledUl,
   Button,
   StyledDiv,
-  LargerText,
+  Header2,
+  Text,
   ButtonContainer,
   ArrowButton,
+  StyledSpan,
 } from "./Styled";
 import {
   HealthyHome,
@@ -18,20 +20,32 @@ import {
   ArrowLeft,
 } from "../../svg-icons";
 
-const ScenarioTemplate = ({ scenario, text, description }) => {
-  const scenarioKey =
-    scenario === 0 ? "firstScenarioData" : "secondScenarioData";
-  const scenarioDayKey =
-    scenario === 0 ? "firstScenarioDay" : "secondScenarioDay";
+const ScenarioTemplate = ({ scenario, text, title }) => {
+  let scenarioKey = "";
+  let scenarioDayKey = "";
+  let scenarioCarets = "";
+  if (scenario === 0) {
+    scenarioKey = "firstScenarioData";
+    scenarioDayKey = "firstScenarioDay";
+    scenarioCarets = "firstScenarioCarets";
+  } else if (scenario === 1) {
+    scenarioKey = "secondScenarioData";
+    scenarioDayKey = "secondScenarioDay";
+    scenarioCarets = "secondScenarioCarets";
+  } else {
+    scenarioKey = "thirdScenarioData";
+    scenarioDayKey = "thirdScenarioDay";
+    scenarioCarets = "thirdScenarioCarets";
+  }
+
   const data = useSelector(
     (state) => state.AlgorithmReducer[scenarioKey],
     () => false
   );
   const day = useSelector((state) => state.AlgorithmReducer[scenarioDayKey]);
-
-  // if (scenario === 0) {
-  //   console.log("home", data);
-  // }
+  const showCarets = useSelector(
+    (state) => state.AlgorithmReducer[scenarioCarets]
+  );
 
   const dispatch = useDispatch();
   const scenarioItems = data.map((row, index) => {
@@ -57,29 +71,37 @@ const ScenarioTemplate = ({ scenario, text, description }) => {
 
   return (
     <StyledDiv>
-      <LargerText>Day: {day}</LargerText>
-      <p>{text}</p>
-      {description && <p>description</p>}
+      <Header2>{title}</Header2>
+      <Text>
+        {text}
+        <StyledSpan>Day: {day}</StyledSpan>
+      </Text>
       {scenarioItems}
 
       <div>
-        <Button onClick={() => dispatch(InfectHomes(scenario))}>
+        <Button
+          onClick={() => {
+            dispatch(InfectHomes(scenario));
+          }}
+        >
           Play animation
         </Button>
-
-        <ButtonContainer>
-          <ArrowButton onClick={() => dispatch(InfectHomes(scenario, day - 1))}>
-            <ArrowLeft />
-          </ArrowButton>
-          <ArrowButton
-            onClick={() => {
-              // console.log("hello", scenario);
-              dispatch(InfectHomes(scenario, day + 1));
-            }}
-          >
-            <ArrowRight />
-          </ArrowButton>
-        </ButtonContainer>
+        {showCarets && (
+          <ButtonContainer>
+            <ArrowButton
+              onClick={() => dispatch(InfectHomes(scenario, day - 1))}
+            >
+              <ArrowLeft />
+            </ArrowButton>
+            <ArrowButton
+              onClick={() => {
+                dispatch(InfectHomes(scenario, day + 1));
+              }}
+            >
+              <ArrowRight />
+            </ArrowButton>
+          </ButtonContainer>
+        )}
       </div>
     </StyledDiv>
   );

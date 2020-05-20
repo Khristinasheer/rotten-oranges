@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, IconGuide, Text, Box } from "./Styled";
+import { Header, IconGuide, IconText, Box } from "./Styled";
 import {
   HealthyHome,
   ZombieHome,
@@ -27,6 +27,24 @@ const Home = () => {
       text: "Infected Home",
     },
   ];
+
+  let scenarioRank = [
+    {
+      scenario: 0,
+      title: "Case 1",
+      text: "All can become infected.",
+    },
+    {
+      scenario: 1,
+      title: "Case 2",
+      text: "All can become infected.",
+    },
+    {
+      scenario: 2,
+      title: "Case 3",
+      text: "With effective social distancing, not all will be infected.",
+    },
+  ];
   return (
     <>
       <Header>Zombies</Header>
@@ -35,22 +53,21 @@ const Home = () => {
           return (
             <li key={icon.text}>
               {icon.src}
-              <Text>{icon.text}</Text>
+              <IconText>{icon.text}</IconText>
             </li>
           );
         })}
       </IconGuide>
 
       <Box>
-        <ScenarioTemplate
-          text="A case where all can be infected"
-          scenario={0}
-        />
-        <ScenarioTemplate
-          text="A case with effective social distancing"
-          description="In the end, all infected homes are cured"
-          scenario={1}
-        />
+        {scenarioRank.map((i) => (
+          <ScenarioTemplate
+            key={i.scenario}
+            scenario={i.scenario}
+            text={i.text}
+            title={i.title}
+          />
+        ))}
       </Box>
     </>
   );

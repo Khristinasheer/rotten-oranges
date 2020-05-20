@@ -14,12 +14,12 @@ const rotate = keyframes`
 
 const StyledIcon = styled.svg`
   ${media.down.small`
-      width: 50px;
+      width: 35px;
     `};
   /* animation: ${rotate} infinite 2s ease-in-out; */
 `;
 
-const EmptyHome = ({ width = "65px" }) => (
+const EmptyHome = ({ width = "50px" }) => (
   <StyledIcon
     width={width}
     viewBox="0 0 90 90"
