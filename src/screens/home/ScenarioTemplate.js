@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { InfectHomes } from "../../redux/actions/algorithmActions";
 import {
@@ -115,4 +115,4 @@ const ScenarioTemplate = ({ scenario, text, title }) => {
   );
 };
 
-export default ScenarioTemplate;
+export default memo(ScenarioTemplate);
