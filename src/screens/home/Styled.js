@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import media from "../../helpers/media";
 
 export const IconGuide = styled.ul`

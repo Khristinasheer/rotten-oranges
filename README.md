@@ -8,7 +8,7 @@ All SVG files were minified using [SVGOMG](https://jakearchibald.github.io/svgom
 
 Added dependencies:
 
-- lodash
+- lodash (to return the deep clone value of the grid)
 
 It said in the instructions that the Healthy House has a blue roof:
 
