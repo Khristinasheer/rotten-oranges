@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Header, IconGuide, IconText, Box } from "./Styled";
 import {
   HealthyHome,
@@ -73,4 +73,4 @@ const Home = () => {
   );
 };
 
-export default memo(Home);
+export default Home;

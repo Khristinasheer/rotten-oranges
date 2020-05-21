@@ -85,32 +85,28 @@ const ScenarioTemplate = ({ scenario, text, title }) => {
       </Text>
       {scenarioItems}
 
-      <div>
-        <Button
-          onClick={() => {
-            dispatch(InfectHomes(scenario));
-          }}
-          disabled={isDisabled}
-        >
-          Play animation
-        </Button>
-        {showCarets && (
-          <ButtonContainer>
-            <ArrowButton
-              onClick={() => dispatch(InfectHomes(scenario, day - 1))}
-            >
-              <ArrowLeft />
-            </ArrowButton>
-            <ArrowButton
-              onClick={() => {
-                dispatch(InfectHomes(scenario, day + 1));
-              }}
-            >
-              <ArrowRight />
-            </ArrowButton>
-          </ButtonContainer>
-        )}
-      </div>
+      <Button
+        onClick={() => {
+          dispatch(InfectHomes(scenario));
+        }}
+        disabled={isDisabled}
+      >
+        Play animation
+      </Button>
+      {showCarets && (
+        <ButtonContainer>
+          <ArrowButton onClick={() => dispatch(InfectHomes(scenario, day - 1))}>
+            <ArrowLeft />
+          </ArrowButton>
+          <ArrowButton
+            onClick={() => {
+              dispatch(InfectHomes(scenario, day + 1));
+            }}
+          >
+            <ArrowRight />
+          </ArrowButton>
+        </ButtonContainer>
+      )}
     </StyledDiv>
   );
 };

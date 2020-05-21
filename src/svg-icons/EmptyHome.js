@@ -1,22 +1,11 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import media from "../helpers/media";
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
 
 const StyledIcon = styled.svg`
   ${media.down.small`
-      width: 35px;
-    `};
-  /* animation: ${rotate} infinite 2s ease-in-out; */
+    width: 35px;
+  `};
 `;
 
 const EmptyHome = ({ width = "50px" }) => (
