@@ -14,9 +14,9 @@ const ZombieHome = ({ width = "50px" }) => (
     viewBox="0 0 90 90"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    aria-labelledby="zombie-home"
+    // aria-labelledby="zombie-home"
   >
-    <title id="zombie-home">Zombie Home icon</title>
+    {/* <title id="zombie-home">Zombie Home icon</title> */}
     <path fill="#C4C4C4" d="M0 0h90v90H0z" />
     <path fill="#F7F0DA" d="M24 34h42v41H24z" />
     <path fill="#823333" d="M58 14h6v20h-6z" />
