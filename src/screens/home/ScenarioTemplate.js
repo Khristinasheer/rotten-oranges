@@ -24,18 +24,22 @@ const ScenarioTemplate = ({ scenario, text, title }) => {
   let scenarioKey = "";
   let scenarioDayKey = "";
   let scenarioCarets = "";
+  let scenarioRunning = "";
   if (scenario === 0) {
     scenarioKey = "firstScenarioData";
     scenarioDayKey = "firstScenarioDay";
     scenarioCarets = "firstScenarioCarets";
+    scenarioRunning = "firstScenarioRunning";
   } else if (scenario === 1) {
     scenarioKey = "secondScenarioData";
     scenarioDayKey = "secondScenarioDay";
     scenarioCarets = "secondScenarioCarets";
+    scenarioRunning = "secondScenarioRunning";
   } else {
     scenarioKey = "thirdScenarioData";
     scenarioDayKey = "thirdScenarioDay";
     scenarioCarets = "thirdScenarioCarets";
+    scenarioRunning = "thirdScenarioRunning";
   }
 
   const data = useSelector(
@@ -45,6 +49,9 @@ const ScenarioTemplate = ({ scenario, text, title }) => {
   const day = useSelector((state) => state.AlgorithmReducer[scenarioDayKey]);
   const showCarets = useSelector(
     (state) => state.AlgorithmReducer[scenarioCarets]
+  );
+  const isDisabled = useSelector(
+    (state) => state.AlgorithmReducer[scenarioRunning]
   );
 
   const dispatch = useDispatch();
@@ -83,6 +90,7 @@ const ScenarioTemplate = ({ scenario, text, title }) => {
           onClick={() => {
             dispatch(InfectHomes(scenario));
           }}
+          disabled={isDisabled}
         >
           Play animation
         </Button>

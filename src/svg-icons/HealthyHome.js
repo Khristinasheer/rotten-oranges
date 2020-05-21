@@ -14,9 +14,9 @@ const HealthyHome = ({ width = "50px" }) => (
     viewBox="0 0 90 90"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    aria-labelledby="healthy-home-title"
+    aria-labelledby="healthy-home"
   >
-    <title id="healthy-home-title">Healthy Home icon</title>
+    <title id="healthy-home">Healthy Home icon</title>
 
     <rect width="90" height="90" fill="#C4C4C4" />
     <rect x="24" y="34" width="42" height="41" fill="#F7F0DA" />

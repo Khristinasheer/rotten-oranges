@@ -8,9 +8,7 @@ export const UIActions = {
 };
 
 export const UI__SetTheme = () => (dispatch, getState) => {
-  //  console.log(getState());
   const useLightMode = getState().uiReducer.useLightMode;
-  // console.log(useLightMode);
   dispatch({
     type: UIActions.SET_ATTRIBUTE,
     key: "useLightMode",

@@ -34,31 +34,37 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
 
   let healthyHomes = 0;
   let zombieHomes = [];
+  let infectedHomes = [];
 
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === 1) healthyHomes++;
       if (grid[i][j] === 2) zombieHomes.push([i, j]);
+      if (grid[i][j] === 3) infectedHomes.push([i, j]);
     }
   }
 
-  //debugger;
   const direction = [
     [0, -1],
     [0, 1],
     [-1, 0],
     [1, 0],
   ];
-  // console.log("healthy homes/zombie homes", healthyHomes, zombieHomes);
 
   while (healthyHomes && zombieHomes.length) {
     let infectionProgress = [];
     while (zombieHomes.length) {
       let [x, y] = zombieHomes.pop();
+
+      infectedHomes.forEach(([x, y]) => {
+        grid[x][y] = 2;
+      });
+
       for (let i = 0; i < 4; i++) {
         let [x2, y2] = [x + direction[i][0], y + direction[i][1]];
         if (grid[x2] && grid[x2][y2] === 1) {
-          grid[x2][y2] = 2;
+          grid[x2][y2] = 3;
+          infectedHomes.push([x2, y2]);
           healthyHomes--;
           infectionProgress.push([x2, y2]);
         }
@@ -81,6 +87,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
       dispatch({
         type: AlgorithmActions.INFECT_HOMES,
         scenario,
+        isRunning: true,
         showCarets,
         grid,
         day,
@@ -89,8 +96,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
     }
   }
 
-  // // // fix steps < > for scenario 1
-  if (scenario === 2 && healthyHomes) {
+  if (scenario === 2 && healthyHomes && targetDay === null) {
     let curedArray = [];
     for (let i = 0; i < grid.length; i++) {
       for (let j = 0; j < grid[i].length; j++) {
@@ -118,6 +124,7 @@ const homeInfection = async (initialGrid, scenario, targetDay, dispatch) => {
       day,
     });
   }
+
   return day;
 };
 

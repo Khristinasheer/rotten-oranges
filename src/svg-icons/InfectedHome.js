@@ -14,9 +14,9 @@ const InfectedHome = ({ width = "50px" }) => (
     viewBox="0 0 90 90"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    aria-labelledby="infected-home-title"
+    aria-labelledby="infected-home"
   >
-    <title id="infected-home-title">Infected Home icon</title>
+    <title id="infected-home">Infected Home icon</title>
     <rect width="90" height="90" fill="#C4C4C4" />
     <rect x="24" y="34" width="42" height="41" fill="#F7F0DA" />
     <rect x="58" y="14" width="6" height="20" fill="#823333" />

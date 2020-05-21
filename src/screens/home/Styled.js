@@ -19,20 +19,6 @@ export const Header = styled.h1`
 
 export const Header2 = styled.h2`
   font-size: 20px;
-  /* animation: ${keyframes`
-       0%,
-       60%,
-       100% {
-         transform: translate3d(0, 0, 0);
-       }
-       80% {
-         transform: translate3d(0, 2px, 0);
-       }
-       70%,
-       90% {
-         transform: translate3d(0, 7px, 0);
-       }
-     `} infinite 2s ease-in-out; */
 `;
 
 export const Text = styled.p`
@@ -50,10 +36,10 @@ export const Box = styled.div`
   column-gap: 10px;
   margin-top: 32px;
 
-  ${media.up.xlarge`
+  ${media.up.large`
     grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 30px;
+    margin-right: 30px;
   `};
 `;
 

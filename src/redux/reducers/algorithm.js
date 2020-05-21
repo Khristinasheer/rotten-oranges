@@ -12,6 +12,9 @@ export const initialState = {
   firstScenarioCarets: false,
   secondScenarioCarets: false,
   thirdScenarioCarets: false,
+  firstScenarioRunning: false,
+  secondScenarioRunning: false,
+  thirdScenarioRunning: false,
 };
 
 const AlgorithmReducer = produce((state = { ...initialState }, action) => {
@@ -23,6 +26,7 @@ const AlgorithmReducer = produce((state = { ...initialState }, action) => {
           firstScenarioData: action.grid,
           firstScenarioDay: action.day,
           firstScenarioCarets: action.showCarets,
+          firstScenarioRunning: action.isRunning,
         };
       }
       if (action.scenario === 1) {
@@ -31,6 +35,7 @@ const AlgorithmReducer = produce((state = { ...initialState }, action) => {
           secondScenarioData: action.grid,
           secondScenarioDay: action.day,
           secondScenarioCarets: action.showCarets,
+          secondScenarioRunning: action.isRunning,
         };
       }
       if (action.scenario === 2) {
@@ -39,6 +44,7 @@ const AlgorithmReducer = produce((state = { ...initialState }, action) => {
           thirdScenarioData: action.grid,
           thirdScenarioDay: action.day,
           thirdScenarioCarets: action.showCarets,
+          thirdScenarioRunning: action.isRunning,
         };
       }
       break;

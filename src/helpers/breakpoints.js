@@ -1,6 +1,5 @@
 export default {
   up: {
-    xlarge: 1680,
     large: 1440,
     medium: 768,
     small: 576,
